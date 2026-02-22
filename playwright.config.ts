@@ -11,7 +11,7 @@ export default defineConfig({
     : [['html']],
 
   use: {
-    storageState: 'playwright/.auth/user.json',
+    storageState: '.auth/user.json',
     viewport: null,
     launchOptions: {
       args: ['--start-maximized'],
