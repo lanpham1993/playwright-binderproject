@@ -4,6 +4,9 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  schedule:
+    # This example runs at 00:00 UTC every day
+    - cron: '0 0 * * *'
 jobs:
   test:
     timeout-minutes: 60
@@ -27,6 +30,4 @@ jobs:
           playwright-report/
           results.xml
         retention-days: 30
-on:
-schedule:
-  - cron: '0 2 * * *' # Runs every day at midnight
+
