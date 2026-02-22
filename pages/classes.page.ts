@@ -143,6 +143,7 @@ export class ClassesPage extends BasePage {
 
 
   async filterAcademicYear(academicYear: string) {
+    await this.academicYearFilter.click();
     await this.academicYearFilter.fill(academicYear);
     await this.dropdownOptions.filter({ hasText: academicYear }).click();
     await this.page.waitForLoadState('networkidle');
