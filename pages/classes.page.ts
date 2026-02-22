@@ -45,7 +45,7 @@ export class ClassesPage extends BasePage {
     super(page);
     this.page = page;
     this.newClassButton = page.locator('.innos-ui-button-content', { hasText: 'Add Class' });
-    this.academicYearFilter = page.locator('#innos-ui_select_3');
+    this.academicYearFilter = page.locator('.innos-ui-select-selection-search-input').nth(1);
 
 
     this.createEditClassForm = page.locator('.innos-ui-modal-content');
@@ -136,14 +136,15 @@ export class ClassesPage extends BasePage {
     }
 
     await this.saveNewClassButton.click();
-    await this.createEditClassForm.waitFor({ state: 'hidden' });
+    await this.page.waitForLoadState('networkidle');
+    //await this.createEditClassForm.waitFor({ state: 'hidden' });
   }
 
 
 
 
   async filterAcademicYear(academicYear: string) {
-    await this.academicYearFilter.click();
+    await this.academicYearFilter.waitFor({ state: 'visible' });
     await this.academicYearFilter.fill(academicYear);
     await this.dropdownOptions.filter({ hasText: academicYear }).click();
     await this.page.waitForLoadState('networkidle');
@@ -158,37 +159,37 @@ export class ClassesPage extends BasePage {
     }
   }
 
-  
+
 
   async createClass(data: {
-  classCode: string;
-  site?: string;
-  academicYear?: string;
-  subject?: string;
-  leadTeacher?: string;
-  term?: string;
-  desc?: string;
-  schedule?: string;
-  building?: string;
-  room?: string;
-}) {
+    classCode: string;
+    site?: string;
+    academicYear?: string;
+    subject?: string;
+    leadTeacher?: string;
+    term?: string;
+    desc?: string;
+    schedule?: string;
+    building?: string;
+    room?: string;
+  }) {
     await this.newClassButton.click();
     await this.createEditClassForm.waitFor({ state: 'visible' });
     await this.filldataClass(data);
   }
 
-async editClass(theOldClassCode: string,data: {
-  classCode: string;
-  site?: string;
-  academicYear: string;
-  subject?: string;
-  leadTeacher?: string;
-  term?: string;
-  desc?: string;
-  schedule?: string;
-  building?: string;
-  room?: string;
-}) {
+  async editClass(theOldClassCode: string, data: {
+    classCode: string;
+    site?: string;
+    academicYear: string;
+    subject?: string;
+    leadTeacher?: string;
+    term?: string;
+    desc?: string;
+    schedule?: string;
+    building?: string;
+    room?: string;
+  }) {
     await this.verifyClass(theOldClassCode, 'visible');
     await this.editAction.click();
     await this.createEditClassForm.waitFor({ state: 'visible' });
