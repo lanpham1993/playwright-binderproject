@@ -1,0 +1,22 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://stg.binder.education",
+      "localStorage": [
+        {
+          "name": "access-token",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDJlNzhjMC0wNTkxLTExZjEtYjAwOC02ZDBjNWMxYTQ3ZDUiLCJ1c2VybmFtZSI6InNmMDI0MCIsImZ1bGxOYW1lIjoiTGFuIFBoYW0gICIsImF2YXRhclVybCI6ImZpbGVzL2ltYWdlcy9hdmF0YXIvU0YwMjQwLnBuZyIsInR5cGUiOiJTdGFmZiIsImlhdCI6MTc3MTc3NjA0NCwiZXhwIjoxNzcyMzgwODQ0fQ.DRW89n4Aa-hw2rv_oNHwn46_2o3x7Jl825-MHYzIqzg"
+        },
+        {
+          "name": "b-core-trial-start",
+          "value": "null"
+        },
+        {
+          "name": "b-calendar-trial-start",
+          "value": "null"
+        }
+      ]
+    }
+  ]
+}
