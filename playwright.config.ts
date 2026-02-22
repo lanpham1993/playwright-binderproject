@@ -17,13 +17,5 @@ export default defineConfig({
       args: ['--start-maximized'],
     },
   },
-
-  //This avoids manually starting server in YAML.
-  webServer: {
-    command: 'npm run start',
-    port: 3000,
-    reuseExistingServer: !process.env.CI,
-    timeout: 240000,
-  },
 });
 
