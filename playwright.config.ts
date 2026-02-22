@@ -7,8 +7,8 @@ export default defineConfig({
   globalSetup: require.resolve('./global-setup'),
 
   reporter: process.env.CI
-  ? [['html'], ['junit', { outputFile: 'results.xml' }]]
-  : [['html']],
+    ? [['html'], ['junit', { outputFile: 'results.xml' }]]
+    : [['html']],
 
   use: {
     storageState: 'playwright/.auth/user.json',
@@ -23,6 +23,7 @@ export default defineConfig({
     command: 'npx run start',
     port: 3000,
     reuseExistingServer: !process.env.CI,
+    timeout: 240000,
   },
 });
 
